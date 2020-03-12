@@ -45,7 +45,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="首页"
-                    android:textColor="#2E7EFE"
+                    android:textColor="#111E36"
                     android:textSize="11sp" />
             </LinearLayout>
 
@@ -60,7 +60,7 @@
                 <ImageView
                     android:layout_width="21dp"
                     android:layout_height="21dp"
-                    android:background="@mipmap/index_click" />
+                    android:background="@mipmap/ic_launcher" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -115,14 +115,14 @@
 
                     android:layout_width="21dp"
                     android:layout_height="21dp"
-                    android:background="@mipmap/vip" />
+                    android:background="@mipmap/ic_launcher" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="会员"
-                    android:textColor="#111E36"
+                    android:textColor="#2E7EFE"
                     android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
@@ -168,14 +168,14 @@
                 <ImageView
                     android:layout_width="21dp"
                     android:layout_height="21dp"
-                    android:background="@mipmap/index_fcomeon" />
+                    android:background="@mipmap/ic_launcher" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:text="我的"
-                    android:textColor="#111E36"
+                    android:text="车友家"
+                    android:textColor="#2E7EFE"
                     android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
@@ -220,14 +220,14 @@
                 <ImageView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
-                    android:background="@mipmap/my" />
+                    android:background="@mipmap/ic_launcher" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="我的"
-                    android:textColor="#111E36"
+                    android:textColor="#2E7EFE"
                     android:textSize="11sp" />
             </LinearLayout>
         </LinearLayout>
