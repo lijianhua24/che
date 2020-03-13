@@ -50,7 +50,7 @@
             android:layout_width="15dp"
             android:layout_height="17dp"/>
         <EditText
-            android:id="@+id/car_lcode_phone"
+            android:id="@+id/car_code_phone"
             android:background="@null"
             android:textSize="16sp"
             android:layout_toRightOf="@id/login_phone"
@@ -63,7 +63,7 @@
             android:layout_width="230.5dp"
             android:layout_height="wrap_content"/>
         <ImageView
-            android:id="@+id/car_login_cw"
+            android:id="@+id/car_code_cw"
             android:layout_alignParentRight="true"
             android:layout_marginRight="44.5dp"
             android:layout_marginTop="7dp"
@@ -88,32 +88,34 @@
             android:id="@+id/login_suo"
             android:layout_marginLeft="37.5dp"
             android:layout_marginTop="3dp"
-            android:background="@mipmap/loginin_password"
+            android:background="@mipmap/loginin_yanzheng"
             android:layout_width="15dp"
             android:layout_height="17dp"/>
         <EditText
-            android:id="@+id/car_login_pwd"
+            android:id="@+id/car_code_code"
             android:background="@null"
             android:textSize="16sp"
             android:layout_toRightOf="@id/login_suo"
             android:layout_marginLeft="15.5dp"
-            android:hint="请输入密码"
+            android:hint="请输入验证码"
             android:password="true"
             android:textColorHint="#CCCCCC"
             android:singleLine="true"
             android:textColor="#222337"
             android:layout_width="230.5dp"
             android:layout_height="wrap_content"/>
-        <ImageView
-            android:id="@+id/car_login_by"
+        <TextView
+            android:id="@+id/car_code_codes"
+            android:text="获取验证码"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="44.5dp"
-            android:layout_marginTop="7dp"
-            android:background="@mipmap/login_biyan"
-            android:layout_width="12dp"
-            android:layout_height="12dp"/>
+            android:layout_marginRight="30.5dp"
+            android:textColor="#CCCCCC"
+            android:textSize="16sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
     </RelativeLayout>
     <TextView
+        android:id="@+id/car_code_obtain"
         android:background="@drawable/line"
         android:layout_marginLeft="33dp"
         android:layout_marginTop="14dp"
@@ -125,7 +127,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <TextView
-            android:id="@+id/car_lgin_code"
+            android:id="@+id/car_code_pwd"
             android:text="密码登录"
             android:textSize="15sp"
             android:textColor="#222337"
@@ -133,7 +135,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <TextView
-            android:id="@+id/car_login_forget"
+            android:id="@+id/car_code_forget"
             android:text="忘记密码?"
             android:textColor="#CCCCCC"
             android:layout_alignParentRight="true"
@@ -144,7 +146,7 @@
             android:layout_height="wrap_content"/>
     </RelativeLayout>
     <Button
-        android:id="@+id/car_login_bt"
+        android:id="@+id/car_code_bt"
         android:text="登录"
         android:background="@drawable/yuanjiao"
         android:layout_marginTop="55dp"
@@ -153,7 +155,7 @@
         android:layout_width="315dp"
         android:layout_height="50dp"/>
     <ImageView
-        android:id="@+id/car_login_wx"
+        android:id="@+id/car_code_wx"
         android:layout_gravity="center"
         android:layout_marginTop="102.5dp"
         android:background="@mipmap/loginin_weixin"

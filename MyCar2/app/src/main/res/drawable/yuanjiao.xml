@@ -7,7 +7,7 @@
         android:width="1dp"
         android:color="#ECECEC"
         />
-
+<solid android:color="#ECECEC"/>
     <!-- android:radius 圆角的半径 -->
     <corners
         android:radius="25dp"

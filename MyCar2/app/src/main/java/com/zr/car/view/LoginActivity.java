@@ -1,8 +1,10 @@
 package com.zr.car.view;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.LoginFilter;
 import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
@@ -17,6 +19,7 @@ import android.widget.Toast;
 
 import com.zr.car.Base.BaseActivity;
 import com.zr.car.Base.BasePresenter;
+import com.zr.car.MainActivity;
 import com.zr.car.R;
 import com.zr.car.bean.YingPingBean;
 import com.zr.car.contract.HomeConteract;
@@ -48,17 +51,18 @@ public class LoginActivity extends BaseActivity<YingPingPresenter> implements Ho
     @BindView(R.id.car_login_forget)
     TextView carLoginForget;
     @BindView(R.id.car_login_bt)
-    ImageButton carLoginBt;
+    Button carLoginBt;
     @BindView(R.id.car_login_wx)
     ImageView carLoginWx;
     boolean biyan = false;
     boolean phone = false;
     boolean pwd = false;
-
+    String name = " ";
 
     @Override
     protected YingPingPresenter providePresenter() {
         return new YingPingPresenter();
+
     }
 
     @Override
@@ -66,60 +70,65 @@ public class LoginActivity extends BaseActivity<YingPingPresenter> implements Ho
         carLoginPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.d(TAG, "beforeTextChanged: "+charSequence);
-                if ( i>0 ||i == 0){
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                String trim = editable.toString().trim();
+                int length = trim.length();
+
+                if (length>0){
+                    carLoginCw.setVisibility(View.VISIBLE);
                     phone = true;
                 }else {
+                    carLoginCw.setVisibility(View.GONE);
                     phone = false;
                 }
-                if (phone==true && pwd == true){
+                if (phone== true && pwd == true){
+
                     carLoginBt.setBackgroundResource(R.drawable.yuanjiaos);
-                    Log.d(TAG, "carLoginCw: ===============================2");
                 }else {
+
                     carLoginBt.setBackgroundResource(R.drawable.yuanjiao);
                 }
             }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {
-
-            }
         });
-        carLoginPwd.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                Log.d(TAG, "beforeTextChanged: "+charSequence);
-                Log.d(TAG, "i: "+i);
-                Log.d(TAG, "i1: "+i1);
-                Log.d(TAG, "i2: "+i2);
-                if ( i>0 || i == 0){
-                    pwd = true;
-                }else {
-                    pwd = false;
-                }
-                if (phone==true && pwd == true){
-                    carLoginBt.setBackgroundResource(R.drawable.yuanjiaos);
-                    Log.d(TAG, "carLoginCw: ===============================2");
-                }else {
-                    carLoginBt.setBackgroundResource(R.drawable.yuanjiao);
-                }
-            }
+carLoginPwd.addTextChangedListener(new TextWatcher() {
+    @Override
+    public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+    }
 
-            }
+    @Override
+    public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-            @Override
-            public void afterTextChanged(Editable editable) {
+    }
 
-            }
-        });
+    @Override
+    public void afterTextChanged(Editable editable) {
+        int length = editable.toString().length();
+        if (length>0){
+            pwd = true;
+            carLoginBy.setVisibility(View.VISIBLE);
+        }else {
+            carLoginBy.setVisibility(View.GONE);
+            pwd = false;
+        }
+        if (phone== true && pwd == true){
+
+            carLoginBt.setBackgroundResource(R.drawable.yuanjiaos);
+        }else {
+
+            carLoginBt.setBackgroundResource(R.drawable.yuanjiao);
+        }
+    }
+});
 
 
     }
@@ -146,12 +155,16 @@ public class LoginActivity extends BaseActivity<YingPingPresenter> implements Ho
                 //Toast.makeText(this, "123123", Toast.LENGTH_SHORT).show();
                 break;
             case R.id.car_login_by:
+
                 biyan=!biyan;
+                carLoginBt.setBackgroundResource(R.drawable.yuanjiaos);
                 if (biyan){
+                    carLoginBt.setBackgroundResource(R.drawable.yuanjiaos);
                     carLoginBy.setBackgroundResource(R.mipmap.login_zhengyan);
                     carLoginPwd.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                     carLoginPwd.setSelection((carLoginPwd.getText().toString().trim()).length());
                 }else {
+                    carLoginBt.setBackgroundResource(R.drawable.yuanjiaos);
                     carLoginBy.setBackgroundResource(R.mipmap.login_biyan);
                     carLoginPwd.setTransformationMethod(PasswordTransformationMethod.getInstance());
                     carLoginPwd.setSelection((carLoginPwd.getText().toString().trim()).length());
@@ -164,6 +177,7 @@ public class LoginActivity extends BaseActivity<YingPingPresenter> implements Ho
                 startActivity(new Intent(LoginActivity.this,ForgetActivity.class));
                 break;
             case R.id.car_login_bt:
+                startActivity(new Intent(LoginActivity.this, MainActivity.class));
                 break;
             case R.id.car_login_wx:
                 break;
