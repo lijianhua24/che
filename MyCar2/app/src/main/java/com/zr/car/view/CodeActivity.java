@@ -47,22 +47,7 @@ public class CodeActivity extends BaseActivity {
     ImageView carCodeWx;
     @BindView(R.id.car_code_codes)
     TextView carCodeCodes;
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            super.handleMessage(msg);
-            carCodeCodes.setText(msg.toString());
-        }
-    };
-    Timer timer = new Timer();
-    TimerTask timerTask = new TimerTask() {
-        @Override
-        public void run() {
-            Message message = new Message();
-            message.what = 0;
-            handler.sendMessage(message);
-        }
-    };
+
 
     @Override
     protected BasePresenter providePresenter() {
@@ -102,7 +87,6 @@ public class CodeActivity extends BaseActivity {
             case R.id.car_code_wx:
                 break;
             case R.id.car_code_codes:
-                timer.schedule(timerTask, 2000);
                 break;
         }
     }
@@ -117,6 +101,5 @@ public class CodeActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        timer.cancel();
     }
 }
